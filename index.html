@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMZJ9KTT4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WMZJ9KTT4P');
+</script>
+
+   <meta charset="utf-8">
+  <meta name="description" content="Radarize: Enhancing Radar SLAM with Generalizable Doppler-Based Odometry">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Radarize: Enhancing Radar SLAM with Generalizable Doppler-Based Odometry</title>
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <style>
+      .header {
+        width: auto;
+        max-width: auto;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        background-color: rgba(250, 250, 250)
+      }
+
+      a:link,a:visited
+      {
+        color: #0071bc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #208799;
+      }
+
+      hr {
+        border: 10;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 113, 188, 0.2), rgba(0, 0, 0, 0.1), rgba(0, 113, 188, 0.2));
+      }
+
+      .gap-30 {height:30px;}
+      .gap-20 {height:20px;}
+      .gap-10 {height:10px;}
+      .gap-5 {height:5px;}
+
+      .no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      .btn {
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+	  }
+
+    </style>
+</head>
+
+<div class="header">
+	<div class="container">
+        <center><h1><span style="color: #ff0000">Radarize</span>: Enhancing Radar SLAM with <br> Generalizable Doppler-Based Odometry</h1></center>
+		<div class="gap-10"></div>
+		<!--------------------- Author Names --------------------->
+		<center>
+			<a href="https://sie2.github.io/" target="_blank" style="font-size:20px">Emerson Sie</a>,
+            <span style="font-size:20px">Xinyu Wu,</span>
+            <span style="font-size:20px"><sup>*</sup>Heyu Guo,</span>
+			<a href="deepakv.web.illinois.edu" target="_blank" style="font-size:20px">Deepak Vasisht</a>
+		</center>
+
+		<div class="gap-10"></div>
+
+		<center>
+            University of Illinois Urbana-Champaign, <sup>*</sup>Peking University
+		</center>
+
+		<div class="gap-20"></div>
+
+        <center>
+          <img src='resources/artifacts_available_v1_1.png' width=100px>
+          <img src='resources/artifacts_evaluated_reusable_v1_1.png' width=100px>
+          <img src='resources/results_reproduced_v1_1.png' width=100px>
+        </center>
+
+		<div class="gap-20"></div>
+
+		<center>
+			<div class="btn-group" role="group">
+
+				<a href="https://arxiv.org/pdf/2211.03785">
+					<button type="button" class="btn btn-dark">
+						<span class="icon"><i class="fas fa-file-pdf"></i> Paper</span>
+					</button>
+				</a>
+
+				<a href="https://arxiv.org/abs/2311.11260">
+					<button type="button" class="btn btn-dark">
+                        <span class="icon"><i class="ai ai-arxiv"></i> arXiv</span>
+					</button>
+				</a>
+
+				<a href="https://github.com/ConnectedSystemsLab/radarize_ae">
+					<button type="button" class="btn btn-dark">
+						<span class="icon"><i class="fab fa-github"></i> Code</span>
+					</button>
+				</a>
+
+				<a href="https://zenodo.org/records/11093859">
+					<button type="button" class="btn btn-dark">
+                        <span class="icon"><i class="far fa-images"></i> Data</span>
+					</button>
+				</a>
+
+			</div>
+		</center>
+
+	</div>
+</div>
+
+<div class="container">
+
+    <center>
+          <video autoplay muted loop controls width="600px" 
+              src="./resources/radarize_demo.mp4">
+          </video>
+    </center>
+
+    <center>
+        <p style="width:90%; text-align: center; white-space: normal;">
+        <b>TL;DR: Doppler flow works in generic environments and has low drift, enabling mapping large indoor environments with small radars on diverse platforms. </b>
+    </center>
+
+    <!--------------------- abstract --------------------->
+    <!-- <div class="gap-10"></div> -->
+    <h2 style="text-align: center"> Abstract </h2>
+    <!-- <div class="gap-10"></div> -->
+    <center>
+        <p style="width:90%; text-align: justify; white-space: normal;"> 
+            Millimeter-wave (mmWave) radar is increasingly being considered as an alternative to optical sensors for robotic primitives like simultaneous localization and mapping (SLAM). While mmWave radar overcomes some limitations of optical sensors, such as occlusions, poor lighting conditions, and privacy concerns, it also faces unique challenges, such as missed obstacles due to specular reflections or fake objects due to multipath. To address these challenges, we propose Radarize, a self-contained SLAM pipeline that uses only a commodity single-chip mmWave radar. Our radar-native approach uses techniques such as Doppler shift-based odometry and multipath artifact suppression to improve performance. We evaluate our method on a large dataset of 146 trajectories spanning 4 buildings and mounted on 3 different platforms, totaling approximately 4.7 Km of travel distance. Our results show that our method outperforms state-of-the-art radar and radar-inertial approaches by approximately 5x in terms of odometry and 8x in terms of end-to-end SLAM, as measured by absolute trajectory error (ATE), without the need for additional sensors such as IMUs or wheel encoders.
+</p>
+    </center>
+
+    <h2 style="text-align: center"> Related Work </h2>
+
+    <center>
+        This work is part of our series of research on radar-based perception for robots.<br/><br/>
+      <table width="100%">
+        <tr>
+          <td width="100%">
+          <font size = 4>
+            <div style="float:left;margin-right:30px;">
+            <video autoplay loop muted src="resources/batmobility.mp4" width="360"></video>
+            </div>
+            <b>BatMobility: Towards Flying Without Seeing for Autonomous Drones</b><br/>
+            Emerson Sie, Zikun Liu, Deepak Vasisht<br/>
+            MobiCom 2023 <br/> <br/>
+            <a href="https://arxiv.org/abs/2307.11518">PDF</a> |
+            <a href="https://batmobility.github.io/">Project Page</a>
+          </font>
+
+        </tr>
+      </table>
+    </center> 
+
+    <hr>
+
+    <h2 style="text-align: center"> Bibtex </h2>
+	<pre style="background-color: #f4f4f4;">
+
+@inproceedings{sie2024radarize,
+    author = {Sie, Emerson and Wu, Xinyu and Guo, Heyu and Vasisht, Deepak},
+    title = {Radarize: Enhancing Radar SLAM with Generalizable Doppler-Based Odometry},
+    booktitle = {The 22nd ACM International Conference on Mobile Systems, Applications, and Services (ACM MobiSys '24)}
+    year = {2024},
+    doi = {10.1145/3643832.3661871},
+}
+    </pre>
+
+	<hr>
+
+	<b><span style="font-size:22px">Acknowledgements:</span></b><br>
+
+    We thank the anonymous reviewers and our shepherd Wen Hu for their insightful comments and suggestions on improving this paper. This work was supported in part by NSF RINGS Award 2148583. 
+
+	<p style="text-align: right"><a href="https://github.com/HaozhiQi/haozhiqi.github.io/tree/master/hora" style="font-size:12px;">Template for this Website</a></p>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="res/js/bootstrap.min.js"></script>
+
+</div>
+</html>
